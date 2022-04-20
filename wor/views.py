@@ -119,7 +119,7 @@ def solution(good,bad,pos):
     shh=list(d.values())
 
 
-    
+     
     
     nic=[]
     for i in shh:
