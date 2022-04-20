@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Wordle Solver</title>
+</head>
+
+<style>
+.main{
+ position: absolute;
+    top:0;
+    bottom: 0;  
+
+    
+    left: 0;
+    right: 0; 
+    margin: auto;
+height:700px;
+margin-top:100px;
+width:500px;
+background-color:black;
+
+}
+
+.tex{
+    margin:auto;
+	color:white;
+	font-size:150%;
+	text-align:center;
+	margin-top:20px;
+	color:white;
+	
+}
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding:1.5%;
+}
+
+.tex1{
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:10px;  
+   background:white;
+}
+</style>
+
+
+<body style="background-color:#505050;">
+
+<h1  style="color:white;top:0;bottom: 0; left: 0;right: 0; margin: auto;position:absolute;font-size:5vw;text-align:center;">Wordle Solver </h1>
+
+<div class="main">
+<br>
+<h7 style="margin-Top:55px;margin-left:40px; color: white;">Good Letters are the letters presernt in the word.</h7>
+<br>
+<h7 style="margin-left:40px;color: white;">Bad Letters are the letters not presernt in the word.</h7>
+<br>
+<h7 style="margin-left:40px;color: white;">Edit zeroes to enter positions.</h7>
+
+
+<form action="add" >
+
+<h5  class="tex" style="margin-Top:55px;"  > Good letters </h5>
+<br>
+
+<input class="center-block" type="text" name="good" id="good" maxlength=5>
+<br><br>
+
+<h5  class="tex" > Bad letters </h5>
+<br>
+
+<input class="center-block" type="text" name="bad"  id="bad">
+
+<br><br>
+<br>
+
+<h5  class="tex" > Known Letter Positions </h5>
+
+
+<div style="margin-right: auto;margin-left: 120px;margin-top:40px;">
+	
+<input id="p1" name="p1" type="text" maxlength="1" value="0" style="width: 38px; height: 34px;" required>
+<input id="p2"name="p2" type="text" maxlength="1" value="0" style="width: 38px; height: 34px;" required>
+<input id="p3" name="p3" type="text" maxlength="1" value="0" style="width: 38px; height: 34px;" required>
+<input id="p4" name="p4" type="text" maxlength="1" value="0" style="width: 38px; height: 34px;" required>
+<input id="p5"name="p5" type="text" maxlength="1" value="0" style="width: 38px; height: 34px;" required>
+
+</div>
+
+
+
+<input type="submit"  value="Search" id ="search" name="search" style="  display: block;margin-right: auto;margin-left: auto;margin-top:25px;font-size:20px;font-family:'Times New Roman', Times, serif;">
+
+</form>
+    <script>
+      let goodWordInput=document.querySelector("#good");
+      let badWordInput=document.querySelector('#bad');
+      console.log(badWordInput,goodWordInput);
+      function onChange(event)
+      {
+        let source=event.target;
+        let key=event.key;
+        console.log(key);
+        if(badWordInput.value!=null&&goodWordInput.value!=null)
+          { if(event.target==goodWordInput)
+              if(badWordInput.value.indexOf(key)!=-1)
+              {
+              alert("OOPS!!! LETTER ALREADY PRESENT IN BAD LETTERS");
+              event.preventDefault();
+              event.stopPropagation();
+              
+              }
+            if(event.target==badWordInput)
+              if(goodWordInput.value.indexOf(key)!=-1)
+              {
+                alert("OOPS!!! LETTER ALREADY PRESENT IN GOOD LETTERS");
+
+              event.preventDefault();
+              event.stopPropagation();
+
+              }
+          }
+         
+      }
+        
+        goodWordInput.addEventListener('keypress',onChange);
+        badWordInput.addEventListener('keypress',onChange);
+      
+  
+    </script>
+</body>
+</html>
