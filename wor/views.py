@@ -106,6 +106,9 @@ def solution(good,bad,pos):
             if wcheck(bad,i)==0:
                 sol2.append(i)
         
+
+
+
         for i in sol2:
             if sor(good,i)==0:
                 sol1.append(i)
@@ -114,6 +117,9 @@ def solution(good,bad,pos):
     
     d={1:a,2:b,3:c,4:d,5:e}
     shh=list(d.values())
+
+
+    
     
     nic=[]
     for i in shh:
