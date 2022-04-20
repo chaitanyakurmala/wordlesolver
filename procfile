@@ -1,1 +1,0 @@
-web: gunicorn EXP2.wsgi --log-file -
